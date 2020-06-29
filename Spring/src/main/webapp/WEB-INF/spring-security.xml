@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:sec="http://www.springframework.org/schema/security"
+
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/security
+ http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+    <sec:http>
+
+
+    <sec:intercept-url pattern="/" access="permitAll()"/>
+    <sec:intercept-url pattern="/register" access="permitAll()"/>
+    <sec:intercept-url pattern="/login" access="isAnonymous()"/>
+    <sec:intercept-url pattern="/logout" access="isAuthenticated()"/>
+    <sec:intercept-url pattern="/user" access="hasAuthority('ROLE_USER')"/>
+
+        <sec:intercept-url pattern="/admin" access="hasAuthority('ROLE_ADMIN')"/>
+
+
+        <sec:form-login login-page="/login"/>
+        <sec:logout logout-success-url="/"/>
+    </sec:http>
+
+    <beans:bean id="dataSource"
+                class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <beans:property name="url" value="jdbc:mysql://www.db4free.net/jpa2020?serverTimezone=Europe/Warsaw" />
+        <beans:property name="username" value="jpa2020" />
+        <beans:property name="password" value="rafalzdaniuk123" />
+    </beans:bean>
+    <beans:bean id="encoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+    </beans:bean>
+    <sec:authentication-manager>
+        <sec:authentication-provider>
+            <sec:password-encoder ref="encoder"/>
+            <sec:jdbc-user-service data-source-ref="myDataSource"/>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+</beans:beans>

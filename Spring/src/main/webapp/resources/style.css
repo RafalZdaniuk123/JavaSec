@@ -1,0 +1,235 @@
+ body {background-color: white}
+
+
+
+/* wygląd głównego elementu - ol */
+
+
+#slider
+      {
+        float: left;
+        margin-left: 10%;    
+      }
+
+      #slider1
+      {
+        float: left;
+        margin-left: 10%;  
+      }
+      #slider2
+      {float: left;
+        margin-left: 10%; 
+        }
+.as:link, .as:visited
+{
+	  background-color: green;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.as:hover, .as:active
+{
+	
+	background-color: #4CAF50;
+}
+
+input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[type=submit], input [type=button], input[type=reset] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+.logowanieTab th, td
+{
+		border: none;
+		background-color: white;
+		
+}
+.logowanieTab
+{
+		border: none;
+		background-color: white;
+		width: 50%;
+		
+}
+
+input[type=submit]:hover, input [type=button]:hover, input[type=reset]:hover {
+  background-color: #45a049;
+}
+
+.inp
+{
+	
+	
+	
+}
+
+#login
+	{
+		float: right;
+	}
+ol {
+        list-style-type:none;
+        padding:0;
+        margin:0;
+        background-color:white;
+        font-size:18px;
+        height:2em;
+        line-height:2em;
+        text-align:center;
+      }
+
+      /* wygląd wszystkich elementów - a - znajdujących się w elemencie - ol */
+      ol a {
+        display:block;
+        text-decoration:none;
+        color:rgb(103, 194, 29);
+        padding:0 5px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      }
+	  
+	  
+	  
+	  li a
+	  {
+		 
+        display:block;
+        text-decoration:none;
+        color:rgb(103, 194, 29);
+        padding:0 5px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      
+	  }
+
+      /* wygląd elementów - li - wszystkich dzieci elementu - ol */
+      ol > li {
+        float:left;
+        width:150px;
+        margin-left:1px;
+                height:2em;
+      }
+
+      /* wygląd elementu - li - pierwszego dziecka elementu - ol */
+      ol > li:first-child {
+        margin-left:0;
+      }
+
+      /* wygląd elementów - li - wszystkich dzieci elementu - ol - po najechaniu kursorem myszki na element - li */
+      ol > li:hover {
+        background-color:#e1f1bb;
+      }
+
+      /* wygląd elementu - a - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+      ol > li:hover > a {
+        color:#385011;
+      }
+
+      /* wygląd elementu - ul - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
+      ol > li:hover > ul {
+        display:block;
+      }
+
+      /* ------------------------CZĘŚĆ-ROZWIJANA-MENU------------------------ */
+
+      /* wygląd głównych rozwijanych elementów - ul */
+      ol > li > ul {
+        display:none;
+        list-style-type:none;
+        padding:0;
+        margin:0;
+
+      }
+
+      /* wygląd elementu - li - w części rozwijanej */
+      ol > li > ul > li {
+        position:relative;
+        background-color:whitesmoke;
+        font-size: 14px;
+      }
+
+      /* wygląd elementu - a - w części rozwijanej */
+      ol > li > ul > li > a {
+        border-top:1px solid whitesmoke;
+      }
+
+      /* wygląd elementu - li - w części rozwijanej, po najechaniu kursorem myszki na dany element - li */
+      ol > li > ul > li:hover {
+        background-color: rgb(222, 241, 168);
+        font-size: 14px;
+      }
+
+      /* wygląd elementu - a - w części rozwijanej, po najechaniu kursorem myszki na element - li */
+      ol > li > ul > li:hover > a {
+        color:#67f806;
+
+      }
+
+
+      #tytuł
+      {
+        font-size: 40px; font-family: cursive; text-shadow:3px 3px 5px rgb(202, 241, 144);
+
+      }
+      #baner
+      {
+        min-height: 30vh;
+
+
+      }
+      #obrazek1
+      {
+        position: absolute;
+        left: 30vw;
+        top: 0px;
+        z-index: -1;
+
+        min-width: 512px ;
+        min-height: 50vh;
+        min-width: 512px ;
+        min-height: 50vh;
+        background-image: url("sowa.png");
+        background-repeat: repeat-y;
+        background-repeat: repeat-x;
+      }
+      .tableList {
+        table-layout: auto
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #daffd1}
+
+th {
+  background-color: #d7f1ac;
+
+}
+
+      .tabelka_th
+      {
+        color:rgb(14, 110, 14)
+      }
