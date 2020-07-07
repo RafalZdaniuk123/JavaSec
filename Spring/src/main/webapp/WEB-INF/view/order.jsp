@@ -1,4 +1,5 @@
 <%@ include file="banner.jsp" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
   <div style="border-bottom: 1px solid #bbb;
             border-top: 1px solid #bbb;
             position: -webkit-sticky;

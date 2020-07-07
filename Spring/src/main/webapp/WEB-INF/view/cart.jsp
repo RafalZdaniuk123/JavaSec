@@ -69,6 +69,7 @@
              <c:url var="addToOrder" value="/order/addToOrder">
 
                         </c:url>
+
             <tr>
 
                 <tr>
@@ -92,7 +93,10 @@
 
     </table>
 </div>
- <td><a class="as" href="${addToOrder}">Dodaj do zamowien</a></td>
+ <td><a class="as" href="${addToOrder}">Dodaj do zamowien</a></td
+
+
+
 
 </body>
 </html>

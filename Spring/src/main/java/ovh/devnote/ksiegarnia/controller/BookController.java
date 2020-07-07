@@ -1,11 +1,13 @@
 package ovh.devnote.ksiegarnia.controller;
 
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ovh.devnote.ksiegarnia.document.PdfCreator;
 import ovh.devnote.ksiegarnia.entity.Autor;
 import ovh.devnote.ksiegarnia.entity.Kategoria;
 import ovh.devnote.ksiegarnia.entity.Ksiazka;
@@ -13,6 +15,7 @@ import ovh.devnote.ksiegarnia.services.AuthorService;
 import ovh.devnote.ksiegarnia.services.BookService;
 import ovh.devnote.ksiegarnia.services.CategoryService;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,10 +29,11 @@ public class BookController {
     private final AuthorService authorService;
 
     @Autowired
-    public BookController(BookService bookService, CategoryService categoryService, AuthorService authorService) {
+    public BookController(BookService bookService, CategoryService categoryService, AuthorService authorService, PdfCreator pdfCreator) {
         this.bookService = bookService;
         this.categoryService = categoryService;
         this.authorService = authorService;
+
     }
 
     @GetMapping("/list")
@@ -41,11 +45,14 @@ public class BookController {
     }
 
     @GetMapping("/formadd")
-    public String addForm(Model model) {
+    public String addForm(Model model) throws IOException, DocumentException {
         Ksiazka book = new Ksiazka();
         model.addAttribute("book", book);
         model.addAttribute("authors", authorService.getAuthors());
         model.addAttribute("categories", categoryService.getCategories());
+
+
+
         return "addbookform";
     }
 

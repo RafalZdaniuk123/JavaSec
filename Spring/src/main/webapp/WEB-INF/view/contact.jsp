@@ -54,10 +54,12 @@
               </div>
 
 
-              <div style= "text-align: center">
+              <div style= "text-align: center; font-size: 25px;">
 
 
 
+               Email: euforia-ksiegarnia@emil.pl </br>
+               Telefon: 22-456-457
 
 
 

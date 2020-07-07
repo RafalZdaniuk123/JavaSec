@@ -28,9 +28,9 @@
     <beans:bean id="dataSource"
                 class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property name="url" value="jdbc:mysql://www.db4free.net/jpa2020?serverTimezone=Europe/Warsaw" />
+        <beans:property name="url" value="jdbc:mysql://localhost/jpa2020?serverTimezone=Europe/Warsaw" />
         <beans:property name="username" value="jpa2020" />
-        <beans:property name="password" value="rafalzdaniuk123" />
+        <beans:property name="password" value="jpa2020" />
     </beans:bean>
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">

@@ -1,5 +1,6 @@
 package ovh.devnote.ksiegarnia.controller;
 
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -7,11 +8,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ovh.devnote.ksiegarnia.document.PdfCreator;
 import ovh.devnote.ksiegarnia.entity.Koszyk;
 import ovh.devnote.ksiegarnia.entity.Zamowione;
 import ovh.devnote.ksiegarnia.services.CartService;
 import ovh.devnote.ksiegarnia.services.OrderService;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -24,12 +27,13 @@ public class OrderController {
     CartService cartService;
     @Autowired
     OrderService orderService;
+    @Autowired
+    PdfCreator pdfCreator;
 
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping("/addToOrder")
-    public String  addToOrder()
-    {
+    public String  addToOrder() throws IOException, DocumentException {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         String username;
@@ -63,6 +67,8 @@ public class OrderController {
            cartService.deleteCart(kosz.getId());
 
         }
+
+        pdfCreator.pdf(products);
 
         return "redirect:/order/list";
 
@@ -110,6 +116,8 @@ public class OrderController {
        zamowione = orderService.getOrderId(orderId);
         zamowione.setStatus("Zrealizowane");
         orderService.changeStatus(zamowione);
+
+
 
         return "redirect:/order/listAdmin";
     }

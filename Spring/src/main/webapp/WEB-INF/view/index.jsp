@@ -9,7 +9,7 @@
             position: -webkit-sticky;
             position: sticky;">
 
-                <ol>
+                <ol onload="main()">
                  <li><a href="${pageContext.request.contextPath}">Strona głowna</a></li>
 
                         <li>
@@ -75,9 +75,9 @@
               </div>
 
 
-                            <div id="slider"></div>
-                          <div id="slider1"></div>
-                          <div id="slider2"></div>
+
+
+                          <div id="obrazek2"></div>
 
 </body>
 </html>

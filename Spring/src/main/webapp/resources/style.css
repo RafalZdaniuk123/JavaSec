@@ -196,6 +196,13 @@ ol {
 
 
       }
+      #obrazek2
+      {
+
+        background-image: url("ksiazka.jpg");
+         background-repeat: repeat-y;
+                background-repeat: repeat-x;
+      }
       #obrazek1
       {
         position: absolute;

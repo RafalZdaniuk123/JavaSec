@@ -35,6 +35,8 @@ public class BookDAOImpl implements BookDAO{
         Query<Ksiazka>query =  currentSession.createQuery("from Ksiazka where id=:id", Ksiazka.class)
                 .setParameter("id", id);
         return query.getSingleResult();
+
+
     }
 
 

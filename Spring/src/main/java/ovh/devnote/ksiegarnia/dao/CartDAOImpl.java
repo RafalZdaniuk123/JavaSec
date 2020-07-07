@@ -21,6 +21,9 @@ public class CartDAOImpl implements CartDAO {
     public void saveCart(Koszyk koszyk) {
         Session session = sessionFactory.getCurrentSession();
         session.save(koszyk);
+        
+
+
     }
 
     @Override

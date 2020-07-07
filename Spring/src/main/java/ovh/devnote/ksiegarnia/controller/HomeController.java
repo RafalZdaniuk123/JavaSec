@@ -1,35 +1,40 @@
 package ovh.devnote.ksiegarnia.controller;
 
+import com.itextpdf.text.DocumentException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ovh.devnote.ksiegarnia.document.PdfCreator;
 import ovh.devnote.ksiegarnia.entity.Kategoria;
 import ovh.devnote.ksiegarnia.entity.Ksiazka;
 import ovh.devnote.ksiegarnia.services.BookService;
 import ovh.devnote.ksiegarnia.services.CategoryService;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 public class HomeController {
-
+    private final PdfCreator pdfCreator;
     private final BookService bookService;
     private final CategoryService categoryService;
-    public HomeController(BookService bookService, CategoryService categoryService) {
+    public HomeController(PdfCreator pdf, PdfCreator pdfCreator, BookService bookService, CategoryService categoryService) {
+        this.pdfCreator = pdfCreator;
+
         this.bookService = bookService;
         this.categoryService = categoryService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String indexPage(ModelMap model)
-    {
+    public String indexPage(ModelMap model) throws IOException, DocumentException {
         List<Kategoria> categories = categoryService.getCategories();
         List<Ksiazka> books = bookService.getBooks();
         model.addAttribute("books", books);
         model.addAttribute("message", "Access for everybody");
         model.addAttribute("categories", categories );
+
         return "index";
 
     }

@@ -54,7 +54,7 @@
               </div>
 
 
-              <div style= "text-align: center">
+              <div style= "text-align: center; font-size: 25px;">
 
                     
 
